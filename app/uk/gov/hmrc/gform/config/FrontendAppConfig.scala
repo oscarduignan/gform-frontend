@@ -54,17 +54,16 @@ case class FrontendAppConfig(
   def timeoutDialog(templateId: FormTemplateId, authConfig: Option[AuthConfig])(implicit
     messages: Messages,
     lang: LangADT
-  ): Option[TimeoutDialog] = {
-    val authTimeout = jsConfig(authConfig)
-    if (authTimeout.timeoutEnabled) {
+  ): Option[TimeoutDialog] =
+    if (true) {
       Some(
         TimeoutDialog(
           language = Some(lang.langADTToString),
-          timeout = Some(authTimeout.timeout),
-          countdown = Some(authTimeout.countdown),
-          keepAliveUrl = Some(authTimeout.keepAliveUrl),
+          timeout = Some(900),
+          countdown = Some(898),
+          keepAliveUrl = Some("?continue=true"),
           keepAliveButtonText = Some(messages("timeout.dialog.keepAliveButton")),
-          signOutUrl = Some(authTimeout.signOutUrl + "/" + templateId.value),
+          signOutUrl = Some("signout=true"),
           signOutButtonText = Some(messages("timeout.dialog.signOutButton")),
           title = Some(messages("timeout.dialog.title")),
           message = Some(messages("timeout.dialog.message"))
@@ -73,6 +72,5 @@ case class FrontendAppConfig(
     } else {
       None
     }
-  }
 
 }

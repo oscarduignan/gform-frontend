@@ -1,0 +1,23 @@
+@import uk.gov.hmrc.gform.config.FrontendAppConfig
+@import uk.gov.hmrc.gform.sharedmodel.formtemplate.BetaBanner
+@import uk.gov.hmrc.gform.sharedmodel.formtemplate.FormTemplateId
+@import uk.gov.hmrc.gform.sharedmodel.LangADT
+
+@(frontendAppConfig: FrontendAppConfig)(
+        implicit
+        request: Request[_],
+        messages: Messages,
+	l: LangADT
+)
+
+@uk.gov.hmrc.gform.views.html.main_template(
+  title = "test",
+  serviceName = "gform test",
+  developmentPhase = Some(BetaBanner),
+  frontendAppConfig = frontendAppConfig,
+  authConfig = None,
+  templateId = FormTemplateId(""),
+  displayHMRCLogo = false
+) {
+  <p class="govuk-body">This is a test for the timeout component</p>
+}

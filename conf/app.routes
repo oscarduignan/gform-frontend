@@ -3,6 +3,8 @@
 ->            /govuk-frontend                                                                                    govuk.Routes
 ->            /hmrc-frontend                                                                                     hmrcfrontend.Routes
 
+GET           /example                                                                                           uk.gov.hmrc.gform.gform.ExampleController.example()
+
 GET           /email-auth/email-form/:formTemplateId                                                             uk.gov.hmrc.gform.gform.EmailAuthController.emailIdForm(formTemplateId: FormTemplateId, continue: String)
 POST          /email-auth/send-email/:formTemplateId                                                             uk.gov.hmrc.gform.gform.EmailAuthController.sendEmail(formTemplateId: FormTemplateId, continue: String)
 GET           /email-auth/confirm-code-form/:formTemplateId                                                      uk.gov.hmrc.gform.gform.EmailAuthController.confirmCodeForm(formTemplateId: FormTemplateId, error: Option[Boolean], continue: String)

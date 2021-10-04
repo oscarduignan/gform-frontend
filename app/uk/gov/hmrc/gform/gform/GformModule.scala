@@ -102,6 +102,13 @@ class GformModule(
     graphModule.smartStringEvaluatorFactory
   )
 
+  val exampleController: ExampleController = new ExampleController(
+    playBuiltInsModule.i18nSupport,
+    configModule.frontendAppConfig,
+    controllersModule.nonAuthenticatedRequestActions,
+    controllersModule.messagesControllerComponents
+  )
+
   val emailAuthController: EmailAuthController = new EmailAuthController(
     playBuiltInsModule.i18nSupport,
     controllersModule.messagesControllerComponents,
