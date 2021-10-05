@@ -71,9 +71,7 @@
     <script src='@routes.Assets.versioned("javascripts/bignumber.min.js")'></script>
     <script src='@controllers.routes.Assets.versioned("lib/govuk-frontend/govuk/all.js")'></script>
     <script src='@controllers.routes.Assets.versioned("lib/hmrc-frontend/hmrc/all.js")'></script>
-
-    @{timeoutDialog.fold(HtmlFormat.empty)(timeoutDialog => hmrcTimeoutDialog(timeoutDialog))}
-
+  
     <script>window.GOVUKFrontend.initAll();</script>
     <script>window.HMRCFrontend.initAll();</script>
 
@@ -107,6 +105,13 @@
           }
     </script>
     <meta name="format-detection" content="telephone=no" />
+    <!--
+      moved because hmrcTimeoutDialog() outputs a <meta> tag, and meta tags are invalid outside <head>
+      ---
+      window.HMRCFrontend.initAll() from hmrc-frontend/hmrc/all.js will initialize the dialog by looking at the config
+      from the meta tag that we include in the <head> element.
+    -->
+    @{timeoutDialog.fold(HtmlFormat.empty)(timeoutDialog => hmrcTimeoutDialog(timeoutDialog))}
 }
 
 

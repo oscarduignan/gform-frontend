@@ -6,12 +6,14 @@ object Dependencies {
 
   lazy val appDependencies: Seq[ModuleID] = compile ++ test()
 
+  // removed play-frontend-govuk because it's been merged into play-frontend-hmrc
+  // https://github.com/hmrc/play-frontend-hmrc/blob/main/CHANGELOG.md#190---2021-09-14
+
   val compile = Seq(
     ws,
     "uk.gov.hmrc"                 %% "bootstrap-frontend-play-28" % "4.3.0",
     "uk.gov.hmrc"                 %% "play-language"              % "5.1.0-play-28",
-    "uk.gov.hmrc"                 %% "play-frontend-govuk"        % "1.0.0-play-28",
-    "uk.gov.hmrc"                 %% "play-frontend-hmrc"         % "1.12.0-play-28",
+    "uk.gov.hmrc"                 %% "play-frontend-hmrc"         % "1.19.0-play-28",
     "uk.gov.hmrc"                 %% "auth-client"                % "5.6.0-play-28",
     "uk.gov.hmrc"                 %% "domain"                     % "5.11.0-play-27",
     "uk.gov.hmrc"                 %% "play-partials"              % "8.1.0-play-28",
